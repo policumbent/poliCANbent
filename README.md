@@ -23,7 +23,7 @@ dtoverlay=mcp2515-can0,oscillator=8000000,interrupt=25
 dtoverlay=spi-bcm2835
 ```
 
-### Load CAN modules in the OS during boot
+### Load CAN modules in OS during boot
 
 Copy the file ```can.conf``` in ```/etc/modules-load.d/```
 
