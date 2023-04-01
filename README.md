@@ -1,4 +1,4 @@
-# Rasbperry Pi CAN configuration
+# Raspberry Pi CAN configuration
 
 ## MCP2515 SPI-to-CAN module pinout
 
