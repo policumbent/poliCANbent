@@ -1,7 +1,0 @@
-[Match]
-Name=can0
-
-[CAN]
-BitRate=500K    # arbitrary, usual value in automotive
-RestartSec=50ms # time to pass before restarting the network, if it goes down
-Loopback=yes    # enable loopback

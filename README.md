@@ -25,7 +25,7 @@ Run ```setup.sh```: every command is explained in this README.
 
 ### Configure SPI for MCP2515
 
-Copy the following lines in ```/boot/config.txt```:
+Append the following lines in ```/boot/config.txt```:
 
 ```
 ### SPI ###
@@ -40,15 +40,13 @@ dtoverlay=spi-bcm2835
 
 Copy the file ```can.conf``` in ```/etc/modules-load.d/```
 
-### Enable ```systemd-networkd``` and CAN
+### Enable CAN interface
 
-CAN has to be managed by ```systemd-networkd```, which, usually, is not enabled
-by default. In order to enable it run the following commands:
+Append the following lines in ```/etc/network/interfaces```
 
-```Bash
-$ sudo systemctl start systemd-networkd
-$ sudo systemctl enable systemd-networkd
 ```
-
-Then, copy the file ```80-can.network``` in ```/etc/systemd/network/``` and run
-the command ```sudo systemctl restart systemd-networkd```
+auto can0
+iface can0 can static
+	bitrate 500000
+	loopback on
+```
