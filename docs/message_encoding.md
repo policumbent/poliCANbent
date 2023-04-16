@@ -14,10 +14,10 @@
 ```
 
 type:
-- ```000```: error
-- ```001```: init
+- ```000```: debug
+- ```001```: error
 - ```010```: data
-- ```100```: info(?)
+- ```100```: info
 
 from:
 - ``0000``: Core Raspberry Pi/Bob functionalities
@@ -34,7 +34,7 @@ from:
 ### Data requests
 
 #### Init request:
-ID type: ``0x100``; DLC: 1
+ID type: ``0x000``; DLC: 1
 
 #### Init reply:
 ID type: ``0b100 + device address``
