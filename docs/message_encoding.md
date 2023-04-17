@@ -14,10 +14,10 @@
 ```
 
 type:
-- ```000```: debug
-- ```001```: error
-- ```010```: data
-- ```100```: info
+- ``000``: debug
+- ``001``: error
+- ``010``: data
+- ``100``: info
 
 from:
 - ``0000``: Core Raspberry Pi/Bob functionalities
@@ -38,15 +38,17 @@ from:
 
 ### Debug messages
 
-#### Init request:
-ID type: ``0x000``; DLC: 1
+#### Init request (DLC = 5):
+
+ID type: ``0x000``;
 
 #### Init reply:
+
 ID type: ``0b000 + device address``
-- PL: ``0x81`` -> on
+- PL: ``0x8000000001`` -> on
 - if a reply is not received in 5 seconds, then the Raspberry writes an error
 
-For the GSM, the reply PL will be, in bits (DLC = 5, do not consider spaces):
+For the GSM, the reply PL will be, in bits:
 
 ``DDDDD MMMM YYYYYYYYYYYY 00 HHHHH MMMMMM SSSSSS``
 
