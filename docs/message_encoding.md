@@ -65,10 +65,31 @@ For the GSM, the reply PL will be, in bits (DLC = 5, do not consider spaces):
 
 - Changed gear: ``hex(current_gear)``
 
-### RPi/Bob data sending
+### Rasberry Pi/Bob data sending
+
+- Hall sensor (DLC = 4):
+
+    ``DDDDDDDDDDDDDD 0 SSSSSSSS 0 RRRRRRRR``
+
+    ``-displacement- - --speed- - -w_rpm--``
+
+- SRM (DLC = 3):
+
+    ``00 PPPPPPPPPP 00 RRRRRRRR 00``
+
+    ``-- ---power-- -- --p_rpm- --``
+
+- Heart beat (DLC = 1):
+
+    ``BBBBBBBB``
+
+    ``---bpm--``
 
 ### GSM module
 
 - Coordinates (DLC = 8(?)):
 - Displacement and speed (DLC = 3):
+    
     ``DDDDDDDDDDDDDD 00 SSSSSSSS``
+    
+    ``-displacement- -- --speed-``
