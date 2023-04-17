@@ -30,7 +30,8 @@ from:
     - ``0010``: SRM powermeter (power, pedals' RPM)
     - ``0100``: heart-rate
 - ``0100``: GSM/GPS module
-    - ``0001``: GPS data
+    - ``0001``: GPS computed displacement and speed
+    - ``0010``: GPS coordinates
 - ``1000``: Other low-priority stuff
 
 ## Data Frames
@@ -64,8 +65,10 @@ For the GSM, the reply PL will be, in bits (DLC = 5, do not consider spaces):
 
 - Changed gear: ``hex(current_gear)``
 
+### RPi/Bob data sending
+
 ### GSM module
 
-
-
-### RPi/Bob data sending
+- Coordinates (DLC = 8(?)):
+- Displacement and speed (DLC = 3):
+    ``DDDDDDDDDDDDDD 00 SSSSSSSS``
