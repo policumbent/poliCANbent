@@ -61,11 +61,17 @@ For the GSM, the reply PL will be, in bits (DLC = 5, do not consider spaces):
 - Limit switch PL: ``0x0`` (if needed)
 - Greta PL: ``0x1``
 
-#### Data (DLC: 1byte)
+#### Data
 
-- Changed gear: ``hex(current_gear)``
+- Current gear (DLC = 1), sent only at gear change:
 
-### Rasberry Pi/Bob data sending
+    ``GGGGGGGG``
+
+    ``--gear--``
+
+### Rasberry Pi/Bob
+
+#### Data sending
 
 - Hall sensor (DLC = 4):
 
