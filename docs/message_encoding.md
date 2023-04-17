@@ -43,14 +43,29 @@ ID type: ``0x000``; DLC: 1
 #### Init reply:
 ID type: ``0b000 + device address``
 - PL: ``0x81`` -> on
-- if reply is not received in 5 seconds, then the Raspberry writes an error
+- if a reply is not received in 5 seconds, then the Raspberry writes an error
+
+For the GSM, the reply PL will be, in bits (DLC = 5, do not consider spaces):
+
+``DDDDD MMMM YYYYYYYYYYYY 00 HHHHH MMMMMM SSSSSS``
+
+``-day- mont ----year---- -- hour- minute --sec-``
 
 ### Core Raspberry Pi/Bob functionalities
 
-
-
 ### Gearbox
 
+#### Errors (DLC: 1byte)
+
+- Limit switch PL: ``0x0`` (if needed)
+- Greta PL: ``0x1``
+
+#### Data (DLC: 1byte)
+
+- Changed gear: ``hex(current_gear)``
+
 ### GSM module
+
+
 
 ### RPi/Bob data sending
