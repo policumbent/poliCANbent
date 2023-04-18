@@ -1,6 +1,6 @@
 #include "can_decoder.h"
 
-CAN_Message::CAN_Message(int id, long long pl) {
+CAN_Message::CAN_Message(int id, unsigned long long pl) {
     this->enc_id = id;
     this->enc_pl = pl;
 }

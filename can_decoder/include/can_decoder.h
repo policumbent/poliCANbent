@@ -34,9 +34,9 @@
 class CAN_Message {
     private:
         int enc_id;
-        long long enc_pl;
+        unsigned long long enc_pl;
 
-        int type;       // TODO: implement differences of types of payload
+        int pl_size;       // TODO: implement differences of types of payload
         
         char *topic;
         char *payload;
@@ -51,7 +51,7 @@ class CAN_Message {
          * @param CAN message ID
          * @param CAN message encoded payload
          */
-        CAN_Message(int id, long long pl);
+        CAN_Message(int id, unsigned long long pl);
         int get_type();
         char *get_topic();
         char *get_payload();
