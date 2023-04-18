@@ -35,7 +35,7 @@ from:
 - ``0100``: GSM/GPS module
     - ``0000``: GPS computed speed
     - ``0001``: GPS computed displacement
-    - ``0010``: GPS coordinates(?)
+    <!-- - ``0010``: GPS coordinates(?) -->
 - ``1000``: Other low-priority stuff
 
 ## Data Frames
@@ -95,4 +95,4 @@ For the GSM, the reply PL will be, in bits:
 
 - GPS computed displacement (DLC = 8)
 
-- Coordinates (DLC = 8(?)): to be defined
+<!-- - Coordinates (DLC = 8(?)): to be defined -->

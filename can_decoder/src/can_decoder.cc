@@ -46,23 +46,23 @@ char *CAN_Message::get_payload() {
 }
 
 char *CAN_Message::get_gb_spec(int spec) {
-    char buf[25];
+    char *buf;
 
     switch (spec) {
         case (GB_LMT_SWITCH):
-            sprintf(buf, "limit_switch");
+            buf = strdup("limit_switch");
             break;
         
         case (GB_RECEIVER):
-            sprintf(buf, "cerberus_receiver");
+            buf = strdup("cerberus_receiver");
             break;
 
         case (GB_GEARBOX):
-            sprintf(buf, "gearbox");
+            buf = strdup("gearbox");
             break;
         
         default:
-            sprintf(buf, "unknown");
+            buf = strdup("unknown");
             break;
     }
 
@@ -70,35 +70,35 @@ char *CAN_Message::get_gb_spec(int spec) {
 }
 
 char *CAN_Message::get_rpi_spec(int spec) {
-    char buf[25];
+    char *buf;
 
     switch (spec) {
         case (RPI_HS_SPEED):
-            sprintf(buf, "hall_sensor_speed");
+            buf = strdup("hall_sensor_speed");
             break;
 
         case (RPI_HS_DISTANCE):
-            sprintf(buf, "hall_sensor_distance");
+            buf = strdup("hall_sensor_distance");
             break;
 
         case (RPI_HS_W_RPM):
-            sprintf(buf, "hall_sensor_wheel_rpm");
+            buf = strdup("hall_sensor_wheel_rpm");
             break;
 
         case (RPI_SRM_PWR):
-            sprintf(buf, "srm_power");
+            buf = strdup("srm_power");
             break;
 
         case (RPI_SRM_P_RPM):
-            sprintf(buf, "srm_pedal_rpm");
+            buf = strdup("srm_pedal_rpm");
             break;
 
         case (RPI_HEART_RATE):
-            sprintf(buf, "heart_rate");
+            buf = strdup("heart_rate");
             break;
 
         default:
-            sprintf(buf, "unknown");
+            buf = strdup("unknown");
             break;
     }
 
@@ -106,19 +106,19 @@ char *CAN_Message::get_rpi_spec(int spec) {
 }
 
 char *CAN_Message::get_gsm_spec(int spec) {
-    char buf[25];
+    char *buf;
 
     switch (spec) {
         case (GSM_GPS_SPEED):
-            sprintf(buf, "gps_speed");
+            buf = strdup("gps_speed");
             break;
 
         case (GSM_GPS_DIST):
-            sprintf(buf, "gps_distance");
+            buf = strdup("gps_distance");
             break;
 
         default:
-            sprintf(buf, "unknown");
+            buf = strdup("unknown");
             break;
     }
 

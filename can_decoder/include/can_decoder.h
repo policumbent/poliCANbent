@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include <string.h>
 
 #define ID_TYPE_MASK 0b11100000000  // an 8-bit shift right can be used instead
 
