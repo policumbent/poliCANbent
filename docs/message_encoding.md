@@ -22,16 +22,20 @@ type:
 from:
 - ``0000``: Core Raspberry Pi/Bob functionalities
 - ``0001``: Gearbox
-    - ``0001``: limit switch (Cerberus, different behavious for Phoenix)
-    - ``0010``: receiver (Cerberus)
-    - ``0100``: gearbox
+    - ``0000``: limit switch (Cerberus, different behavious for Phoenix)
+    - ``0001``: receiver (Cerberus)
+    - ``0010``: gearbox
 - ``0010``: Raspberry Pi/Bob data sending
-    - ``0001``: hall sensor (velocity, position, wheel RPM)
-    - ``0010``: SRM powermeter (power, pedals' RPM)
-    - ``0100``: heart-rate
+    - ``0000``: hall sensor speed
+    - ``0001``: hall sensor displacement
+    - ``0010``: hall sensor wheel RPM
+    - ``0100``: SRM powermeter power
+    - ``0101``: SRM pedals' RPM
+    - ``1100``: heart-rate
 - ``0100``: GSM/GPS module
-    - ``0001``: GPS computed displacement and speed
-    - ``0010``: GPS coordinates
+    - ``0000``: GPS computed speed
+    - ``0001``: GPS computed displacement
+    - ``0010``: GPS coordinates(?)
 - ``1000``: Other low-priority stuff
 
 ## Data Frames
@@ -61,31 +65,26 @@ For the GSM, the reply PL will be, in bits:
 #### Errors (DLC: 1byte)
 
 - Limit switch PL: ``0x0`` (if needed)
+
 - Greta PL: ``0x1``
 
 #### Data
 
-- Current gear (DLC = 1), sent only at gear change:
-
-    ``GGGGGGGG``
-
-    ``--gear--``
+- Current gear (DLC = 1), sent only at gear change
 
 ### Rasberry Pi/Bob
 
 #### Data sending
 
-- Hall sensor (DLC = 4):
+- Hall sensor speed (DLC = 8)
 
-    ``DDDDDDDDDDDDDD 0 SSSSSSSS 0 RRRRRRRR``
+- Hall sensor displacement (DLC = 8)
 
-    ``-displacement- - --speed- - -w_rpm--``
+- Hall sensor wheel RPM (DLC = 8)
 
-- SRM (DLC = 3):
+- SRM powermeter power (DLC = 8)
 
-    ``00 PPPPPPPPPP 00 RRRRRRRR 00``
-
-    ``-- ---power-- -- --p_rpm- --``
+- SRM pedals' RPM (DLC = 8)
 
 - Heart beat (DLC = 1):
 
@@ -95,9 +94,8 @@ For the GSM, the reply PL will be, in bits:
 
 ### GSM module
 
-- Coordinates (DLC = 8(?)):
-- Displacement and speed (DLC = 3):
-    
-    ``DDDDDDDDDDDDDD 00 SSSSSSSS``
-    
-    ``-displacement- -- --speed-``
+- GPS computed speed (DLC = 8)
+
+- GPS computed displacement (DLC = 8)
+
+- Coordinates (DLC = 8(?)): to be defined
