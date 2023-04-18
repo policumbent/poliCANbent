@@ -27,15 +27,17 @@
 #define RPI_SRM_P_RPM   0b0101
 #define RPI_HEART_RATE  0b1100
 
-#define GSM_GPS_SPEED  0b0000
-#define GSM_GPS_DIST   0b0001
-// #define GSM_GPS_COOR    0b0010
+#define GSM_GPS_SPEED   0b0000
+#define GSM_GPS_DIST    0b0001
+// #define GSM_GPS_COOR     0b0010
 
 class CAN_Message {
     private:
         int enc_id;
         long long enc_pl;
-        int type;
+
+        int type;       // TODO: implement differences of types of payload
+        
         char *topic;
         char *payload;
 
