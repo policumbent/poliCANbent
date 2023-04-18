@@ -50,6 +50,7 @@ ID type: ``0x000``;
 
 ID type: ``0b000 + device address``
 - PL: ``0x8000000001`` -> on
+
 - if a reply is not received in 5 seconds, then the Raspberry writes an error
 
 For the GSM, the reply PL will be, in bits:
@@ -87,10 +88,6 @@ For the GSM, the reply PL will be, in bits:
 - SRM pedals' RPM (DLC = 8)
 
 - Heart beat (DLC = 1):
-
-    ``BBBBBBBB``
-
-    ``---bpm--``
 
 ### GSM module
 
