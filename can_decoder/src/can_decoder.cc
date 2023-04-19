@@ -6,7 +6,7 @@ CAN_Message::CAN_Message(int id, unsigned long long pl) {
 }
 
 int CAN_Message::get_type() {
-    int type = this->enc_id >> 8;
+    int type = this->enc_id >> 9;
     return type;
 }
 

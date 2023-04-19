@@ -1,9 +1,9 @@
 #include <string.h>
 
-#define ID_TYPE_MASK 0b11100000000  // an 8-bit shift right can be used instead
+#define ID_TYPE_MASK 0b11000000000  // an 8-bit shift right can be used instead
 
-#define ID_DEV_MASK  0b00011110000
-#define ID_SPEC_MASK 0b00000001111
+#define ID_DEV_MASK  0b00111100000
+#define ID_SPEC_MASK 0b00000011111
 
 #define MSG_DEBUG 0
 #define MSG_ERROR 1

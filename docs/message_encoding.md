@@ -10,31 +10,31 @@
 
 ```
     type   from
-0b  000  | 0000 0000
+0b  00   | 0000 00000
 ```
 
 type:
-- ``000``: debug
-- ``001``: error
-- ``010``: data
-- ``100``: info
+- ``00``: debug
+- ``01``: error
+- ``10``: data
+- ``11``: info
 
 from:
 - ``0000``: Core Raspberry Pi/Bob functionalities
 - ``0001``: Gearbox
-    - ``0000``: limit switch (Cerberus, different behavious for Phoenix)
-    - ``0001``: receiver (Cerberus)
-    - ``0010``: gearbox
+    - ``00000``: limit switch (Cerberus, different behavious for Phoenix)
+    - ``00001``: receiver (Cerberus)
+    - ``00010``: gearbox
 - ``0010``: Raspberry Pi/Bob data sending
-    - ``0000``: hall sensor speed
-    - ``0001``: hall sensor displacement
-    - ``0010``: hall sensor wheel RPM
-    - ``0100``: SRM powermeter power
-    - ``0101``: SRM pedals' RPM
-    - ``1100``: heart-rate
+    - ``00000``: hall sensor speed
+    - ``00001``: hall sensor displacement
+    - ``00010``: hall sensor wheel RPM
+    - ``00100``: SRM powermeter power
+    - ``00101``: SRM pedals' RPM
+    - ``01100``: heart-rate
 - ``0100``: GSM/GPS module
-    - ``0000``: GPS computed speed
-    - ``0001``: GPS computed displacement
+    - ``00000``: GPS computed speed
+    - ``00001``: GPS computed displacement
     <!-- - ``0010``: GPS coordinates(?) -->
 - ``1000``: Other low-priority stuff
 
