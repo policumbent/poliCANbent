@@ -70,6 +70,13 @@ class CAN_Message {
          * @param pl: CAN message encoded payload
          */
         CAN_Message(int id, unsigned long long pl);
+        /*
+         * @return char*: string representing the MQTT topic
+         */
         char *get_topic();
+        /*
+         * @return char*: string representing the value of the corresponding
+         * message topic
+         */
         char *get_payload();
 };
