@@ -10,25 +10,25 @@
 #define MSG_DATA  2
 #define MSG_INFO  3
 
-#define DEV_CORE_RPI    0b0000
-#define DEV_GEARBOX     0b0001
-#define DEV_RPI_DATA    0b0010
-#define DEV_GSM_DATA    0b0100
-#define DEV_LOW_PRTY    0b1000
+#define DEV_CORE_RPI    0b00000
+#define DEV_GEARBOX     0b00001
+#define DEV_RPI_DATA    0b00010
+#define DEV_GSM_DATA    0b00100
+#define DEV_LOW_PRTY    0b01000
 
-#define GB_LMT_SWITCH   0b0000
-#define GB_RECEIVER     0b0001   // Cerberus only
-#define GB_GEARBOX      0b0010
+#define GB_LMT_SWITCH   0b00000
+#define GB_RECEIVER     0b00001   // Cerberus only
+#define GB_GEARBOX      0b00010
 
-#define RPI_HS_SPEED    0b0000
-#define RPI_HS_DISTANCE 0b0001
-#define RPI_HS_W_RPM    0b0010
-#define RPI_SRM_PWR     0b0100
-#define RPI_SRM_P_RPM   0b0101
-#define RPI_HEART_RATE  0b1100
+#define RPI_HS_SPEED    0b00000
+#define RPI_HS_DISTANCE 0b00001
+#define RPI_HS_W_RPM    0b00010
+#define RPI_SRM_PWR     0b00100
+#define RPI_SRM_P_RPM   0b00101
+#define RPI_HEART_RATE  0b01100
 
-#define GSM_GPS_SPEED   0b0000
-#define GSM_GPS_DIST    0b0001
+#define GSM_GPS_SPEED   0b00000
+#define GSM_GPS_DIST    0b00001
 // #define GSM_GPS_COOR     0b0010
 
 class CAN_Message {
