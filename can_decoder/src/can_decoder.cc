@@ -5,17 +5,19 @@ CAN_Message::CAN_Message(int id, unsigned long long pl) {
     this->enc_pl = pl;
 }
 
-int CAN_Message::get_type() {
+void CAN_Message::get_type() {
     int type = this->enc_id >> 9;
-    
+
     if (type == MSG_ERROR) {
         this->data_type = DT_ERROR;
     }
 
-    return type;
+    return;
 }
 
 char *CAN_Message::get_topic() {
+    get_type();
+
     int device = (this->enc_id & ID_DEV_MASK) >> 5;
     int specific = this->enc_id & ID_SPEC_MASK;
 
@@ -50,6 +52,10 @@ char *CAN_Message::get_payload() {
     char *buf;
 
     switch (this->data_type) {
+        case (DT_ERROR):
+            buf = strdup("error");
+            break;
+
         case (DT_SPEED):
             buf = get_speed();
             break;

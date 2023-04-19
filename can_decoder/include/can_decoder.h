@@ -54,6 +54,8 @@ class CAN_Message {
         char *get_rpi_spec(int spec);
         char *get_gsm_spec(int spec);
 
+        void get_type();
+
         char *get_speed();
         char *get_distance();
         char *get_rpm();
@@ -68,7 +70,6 @@ class CAN_Message {
          * @param pl: CAN message encoded payload
          */
         CAN_Message(int id, unsigned long long pl);
-        int get_type();
         char *get_topic();
         char *get_payload();
 };

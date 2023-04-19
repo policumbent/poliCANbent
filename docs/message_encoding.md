@@ -82,9 +82,8 @@ For the GSM, the reply PL will be, in bits:
 
 #### Errors (DLC: 1byte)
 
-- Limit switch PL: ``0x0`` (if needed)
-
-- Greta PL: ``0x1``
+Send just a payload of the type ``0x0``. The payload will be ignored by the
+decoder.
 
 #### Data
 
