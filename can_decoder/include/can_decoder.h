@@ -29,7 +29,7 @@
 
 #define GSM_GPS_SPEED   0b00000
 #define GSM_GPS_DIST    0b00001
-// #define GSM_GPS_COOR     0b0010
+// #define GSM_GPS_COOR     0b00010
 
 class CAN_Message {
     private:
@@ -48,8 +48,8 @@ class CAN_Message {
     public:
         /*
          * CAN_Message constructor
-         * @param CAN message ID
-         * @param CAN message encoded payload
+         * @param id: CAN message ID
+         * @param pl: CAN message encoded payload
          */
         CAN_Message(int id, unsigned long long pl);
         int get_type();

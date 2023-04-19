@@ -5,6 +5,7 @@
 - ID: sender identification, 11bits, used also for priority
 - DLC: data length code, 4bits, specifies the length in bytes of the payload
 - PL: payload, 0 to 8 bytes maximum
+- DT: data type
 
 ## IDs
 
@@ -13,13 +14,15 @@
 0b  00   | 0000 00000
 ```
 
-type:
+### Message type
+
 - ``00``: debug
 - ``01``: error
 - ``10``: data
 - ``11``: info
 
-from:
+### From (Device/Specific)
+
 - ``0000``: Core Raspberry Pi/Bob functionalities
 - ``0001``: Gearbox
     - ``00000``: limit switch (Cerberus, different behavious for Phoenix)
@@ -59,6 +62,23 @@ For the GSM, the reply PL will be, in bits:
 
 ``-day- mont ----year---- -- hour- minute --sec-``
 
+### Data types
+
+- Speed: DLC = 2; measurement unit: km/h; precision: 0.01
+
+- Distance: DLC = 2; measurement unit: km; precision: 0.001
+
+- RPM: DLC = 2; measurement unit: RPM; precision 0.1
+
+- Power: DLC = 2; measurement unit: W; precision 0.1
+
+- Heart Rate: DLC = 1; measurement unit: BPM; precision 1
+
+- GPS Speed: DLC = 2; measurement unit: km/h; precision 0.01
+
+- GPS Distance: DLC = 2; measurement unit: km; precision 0.001
+
+
 ### Core Raspberry Pi/Bob functionalities
 
 ### Gearbox
@@ -77,22 +97,22 @@ For the GSM, the reply PL will be, in bits:
 
 #### Data sending
 
-- Hall sensor speed (DLC = 8)
+- Hall sensor speed (DT: Speed)
 
-- Hall sensor displacement (DLC = 8)
+- Hall sensor distance (DT: Distance)
 
-- Hall sensor wheel RPM (DLC = 8)
+- Hall sensor wheel RPM (DT: RPM)
 
-- SRM powermeter power (DLC = 8)
+- SRM powermeter power (DT: Power)
 
-- SRM pedals' RPM (DLC = 8)
+- SRM pedals' RPM (DT: RPM)
 
-- Heart beat (DLC = 1):
+- Heart beat (DT: Heart Rate)
 
 ### GSM module
 
-- GPS computed speed (DLC = 8)
+- GPS computed speed (DT: Speed)
 
-- GPS computed displacement (DLC = 8)
+- GPS computed distance (DT: Distance)
 
 <!-- - Coordinates (DLC = 8(?)): to be defined -->
