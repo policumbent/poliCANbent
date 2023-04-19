@@ -43,6 +43,9 @@ char *CAN_Message::get_topic() {
         /*case (LOW_PRTY):
             break;
         */
+
+        default:
+            topic = strdup("unknown");
     }
 
     return topic;
@@ -121,7 +124,7 @@ char *CAN_Message::get_rpi_spec(int spec) {
 
     switch (spec) {
         case (RPI_HS_SPEED):
-            buf = strdup("hall_sensor_speed");
+            buf = strdup("speed/hall");
 
             if (!this->data_type) {
                 this->data_type = DT_SPEED;
@@ -130,7 +133,7 @@ char *CAN_Message::get_rpi_spec(int spec) {
             break;
 
         case (RPI_HS_DISTANCE):
-            buf = strdup("hall_sensor_distance");
+            buf = strdup("distance/hall");
 
             if (!this->data_type) {
                 this->data_type = DT_DISTANCE;
@@ -139,7 +142,7 @@ char *CAN_Message::get_rpi_spec(int spec) {
             break;
 
         case (RPI_HS_W_RPM):
-            buf = strdup("hall_sensor_wheel_rpm");
+            buf = strdup("wheel_rpm");  // from hall sensor
 
             if (!this->data_type) {
                 this->data_type = DT_RPM;
@@ -148,7 +151,7 @@ char *CAN_Message::get_rpi_spec(int spec) {
             break;
 
         case (RPI_SRM_PWR):
-            buf = strdup("srm_power");
+            buf = strdup("power");      // from srm
 
             if (!this->data_type) {
                 this->data_type = DT_POWER;
@@ -157,7 +160,7 @@ char *CAN_Message::get_rpi_spec(int spec) {
             break;
 
         case (RPI_SRM_P_RPM):
-            buf = strdup("srm_pedal_rpm");
+            buf = strdup("pedal_rpm");  // from srm
 
             if (!this->data_type) {
                 this->data_type = DT_DISTANCE;
@@ -187,7 +190,7 @@ char *CAN_Message::get_gsm_spec(int spec) {
 
     switch (spec) {
         case (GSM_GPS_SPEED):
-            buf = strdup("gps_speed");
+            buf = strdup("speed/gps");
 
             if (!this->data_type) {
                 this->data_type = DT_SPEED;
@@ -196,7 +199,7 @@ char *CAN_Message::get_gsm_spec(int spec) {
             break;
 
         case (GSM_GPS_DIST):
-            buf = strdup("gps_distance");
+            buf = strdup("distance/gps");
 
             if (!this->data_type) {
                 this->data_type = DT_DISTANCE;
