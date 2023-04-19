@@ -1,9 +1,8 @@
 PRG = can_decoder
-INC = -I./include/
 SRC = ./src/
 
 $(PRG):
-	g++ -Wall -o $(PRG) $(INC) $(SRC)*
+	g++ -Wall -o $(PRG) $(SRC)*
 
 .PHONY: clean
 clean:
