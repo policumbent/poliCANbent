@@ -46,9 +46,6 @@ class CAN_Message {
         unsigned long long enc_pl;
 
         int data_type = 0;
-        
-        char *topic;
-        char *payload;
 
         char *get_gb_spec(int spec);
         char *get_rpi_spec(int spec);
