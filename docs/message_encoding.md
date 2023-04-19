@@ -38,7 +38,7 @@
 - ``0100``: GSM/GPS module
     - ``00000``: GPS computed speed
     - ``00001``: GPS computed displacement
-    <!-- - ``0010``: GPS coordinates(?) -->
+    <!-- - ``00010``: GPS coordinates(?) -->
 - ``1000``: Other low-priority stuff
 
 ## Data Frames
@@ -66,7 +66,7 @@ For the GSM, the reply PL will be, in bits:
 
 - Speed: DLC = 2; measurement unit: km/h; precision: 0.01
 
-- Distance: DLC = 2; measurement unit: km; precision: 0.001
+- Distance: DLC = 2; measurement unit: m; precision: 1
 
 - RPM: DLC = 2; measurement unit: RPM; precision 0.1
 
@@ -74,10 +74,7 @@ For the GSM, the reply PL will be, in bits:
 
 - Heart Rate: DLC = 1; measurement unit: BPM; precision 1
 
-- GPS Speed: DLC = 2; measurement unit: km/h; precision 0.01
-
-- GPS Distance: DLC = 2; measurement unit: km; precision 0.001
-
+- Gear: DLC = 1; measurement unit: none; precision 1
 
 ### Core Raspberry Pi/Bob functionalities
 
@@ -91,7 +88,7 @@ For the GSM, the reply PL will be, in bits:
 
 #### Data
 
-- Current gear (DLC = 1), sent only at gear change
+- Current gear (DT: Gear)
 
 ### Rasberry Pi/Bob
 
