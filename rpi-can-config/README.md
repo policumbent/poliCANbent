@@ -48,5 +48,4 @@ Append the following lines in ```/etc/network/interfaces```
 auto can0
 iface can0 can static
 	bitrate 500000
-	loopback on
 ```
