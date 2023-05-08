@@ -39,28 +39,40 @@
     - ``00000``: GPS computed speed
     - ``00001``: GPS computed displacement
     <!-- - ``00010``: GPS coordinates(?) -->
+- ``0101``: Accelerometer
 - ``1000``: Other low-priority stuff
 
 ## Data Frames
 
 ### Debug messages
 
-#### Init request (DLC = 5):
+#### Init request (DLC = 1):
 
 ID type: ``0x000``;
 
 #### Init reply:
 
-ID type: ``0b000 + device address``
-- PL: ``0x8000000001`` -> on
+ID type: ``0b00 + device address``
+- PL: ``0xFF`` -> on
 
-- if a reply is not received in 5 seconds, then the Raspberry writes an error
+- if a reply is not received in a predefined time limit, then the Raspberry
+writes an error
 
-For the GSM, the reply PL will be, in bits:
+#### GSM init
 
-``DDDDD MMMM YYYYYYYYYYYY 00 HHHHH MMMMMM SSSSSS``
-
-``-day- mont ----year---- -- hour- minute --sec-``
+Since it needs time to connect to the GSM network, the GSM control unit will
+work differently:
+1. when it connects to the internet, it writes on the CAN Bus a request message
+(always using the debug message type)
+1. it waits for the Raspberry Pi to send the status of all the other devices on
+the bus
+    1. if the CAN Bus fails, it will just ignore the CAN Bus functionalities
+    1. if the CAN Bus works, it will behave as expected (see next points)
+1. it will send the statuses of the devices on the telemetry MQTT server
+1. it will gather data sent from the Raspberry and the other control units in
+the bike and send them to the telemetry MQTT server
+1. it will send the GPS and air quality data both on the CAN Bus and on the
+telemetry MQTT server
 
 ### Data types
 
