@@ -1,4 +1,4 @@
-# Policumbent CAN Message Definitions
+# Policumbent CAN Bus Documentation
 
 ## Acronyms&co
 
@@ -6,6 +6,7 @@
 - DLC: data length code, 4bits, specifies the length in bytes of the payload
 - PL: payload, 0 to 8 bytes maximum
 - DT: data type
+- RTR: remote transmission request
 
 ## IDs
 
@@ -23,7 +24,7 @@
 
 ### From (Device/Specific)
 
-- ``0000``: Core Raspberry Pi/Bob functionalities
+<!-- - ``0000``: Core Raspberry Pi/Bob functionalities -->
 - ``0001``: Gearbox
     - ``00000``: limit switch (Cerberus, different behavious for Phoenix)
     - ``00001``: receiver (Cerberus)
@@ -34,51 +35,40 @@
     - ``00010``: hall sensor wheel RPM
     - ``00100``: SRM powermeter power
     - ``00101``: SRM pedals' RPM
+    <!-- - ``00110``: accelerometer -->
     - ``01100``: heart-rate
 - ``0100``: GSM/GPS module
     - ``00000``: GPS computed speed
     - ``00001``: GPS computed displacement
     <!-- - ``00010``: GPS coordinates(?) -->
-- ``0101``: Accelerometer
 - ``1000``: Other low-priority stuff
+    - ``10000``: air quality data
 
 ## Data Frames
 
 ### Debug messages
 
-#### Init request (DLC = 1):
+#### Init (DLC = 1):
 
-ID type: ``0x000``;
+- RPi/GSM starting communication ID type: ``0x001``
+
+- Init request: ``0x000``
 
 #### Init reply:
 
 ID type: ``0b00 + device address``
+
 - PL: ``0xFF`` -> on
 
-- if a reply is not received in a predefined time limit, then the Raspberry
+- if a reply is not received in a predefined time limit, then the GSM module
 writes an error
 
-#### GSM init
+#### Raspberry Pi and GSM module init communication
 
-Since it needs time to connect to the GSM network, the GSM control unit will
-work differently:
-1. when it connects to the internet, it writes on the CAN Bus a request message
-(always using the debug message type)
-
-1. it waits for the Raspberry Pi to send the status of all the other devices on
-the bus
-
-    1. if the CAN Bus fails, it will just ignore the CAN Bus functionalities
-    
-    1. if the CAN Bus works, it will behave as expected (see next points)
-
-1. it will send the statuses of the devices on the telemetry MQTT server
-
-1. it will gather data sent from the Raspberry and the other control units in
-the bike and send them to the telemetry MQTT server
-
-1. it will send the GPS and air quality data both on the CAN Bus and on the
-telemetry MQTT server
+These two modules can be slow in starting their functionalities, so they could
+have to ask for all nodes statuses multiple times. As soon as they both write on
+the bus, the GSM module will make an init request to all the nodes that will
+reply with the format specified in [init reply](#init-reply).
 
 ### Data types
 
@@ -94,18 +84,32 @@ telemetry MQTT server
 
 - Gear: DLC = 1; measurement unit: none; precision 1
 
-### Core Raspberry Pi/Bob functionalities
+- Gear Status: DLC = 1; measurement unit: none; precision: none
+
+- Accelerometer: <!-- understand the type of data -->
+
+- Air Quality: <!-- understand the type of data -->
+
+<!-- ### Core Raspberry Pi/Bob functionalities -->
 
 ### Gearbox
 
 #### Errors (DLC: 1byte)
 
-Send just a payload of the type ``0x0``. The payload will be ignored by the
+Send just a payload of the type ``0x00``. The payload will be ignored by the
 decoder.
 
 #### Data
 
 - Current gear (DT: Gear)
+
+- Gear status (DT: Gear Status)
+    
+    - Shifting up: ``0x0F``
+
+    - Shifting down: ``0xF0``
+
+    - Shift completed: ``0x00``
 
 ### Rasberry Pi/Bob
 
@@ -123,10 +127,14 @@ decoder.
 
 - Heart beat (DT: Heart Rate)
 
+<!-- - Accelerometer -->
+
 ### GSM module
 
 - GPS computed speed (DT: Speed)
 
 - GPS computed distance (DT: Distance)
 
-<!-- - Coordinates (DLC = 8(?)): to be defined -->
+<!-- - GPS coordinates: to be defined -->
+
+- Air quality (DT: Air Quality)
