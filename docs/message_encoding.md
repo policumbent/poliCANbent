@@ -64,13 +64,19 @@ Since it needs time to connect to the GSM network, the GSM control unit will
 work differently:
 1. when it connects to the internet, it writes on the CAN Bus a request message
 (always using the debug message type)
+
 1. it waits for the Raspberry Pi to send the status of all the other devices on
 the bus
+
     1. if the CAN Bus fails, it will just ignore the CAN Bus functionalities
+    
     1. if the CAN Bus works, it will behave as expected (see next points)
+
 1. it will send the statuses of the devices on the telemetry MQTT server
+
 1. it will gather data sent from the Raspberry and the other control units in
 the bike and send them to the telemetry MQTT server
+
 1. it will send the GPS and air quality data both on the CAN Bus and on the
 telemetry MQTT server
 
