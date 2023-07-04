@@ -13,6 +13,8 @@ RPi Pin    RPi Label     CAN Module
 24---------GPIO8---------CS
 ```
 
+[Useful website for Raspberry Pi pinout](https://pinout.xyz/#)
+
 ## Automatic setup
 
 Run ```setup.sh```: every command is explained in this README.
