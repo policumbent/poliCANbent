@@ -1,4 +1,4 @@
-# Policumbent CAN Bus Documentation
+# Policumbent CAN Bus Documentation - IDs
 
 ## Acronyms&co
 
@@ -15,14 +15,16 @@
 0b  00   | 0000 00000
 ```
 
-### Message type
+### Encoding
+
+#### Message type
 
 - ``00``: debug
 - ``01``: error
 - ``10``: data
 <!-- - ``11``: info -->
 
-### From (Device/Specific)
+#### From (Device/Specific)
 
 <!-- - ``0000``: Core Raspberry Pi/Bob functionalities -->
 - ``0001``: Gearbox
@@ -47,8 +49,8 @@
 
 - ``GbData``: Gearbox data message, id: ``0x422``
 
-- ``BobHS``: Bob Hall Sensor, id: ``0x441``
+- ``BobSRM``: Bob SRM, id: ``0x441``
 
-- ``BobSRM``: Bob SRM, id: ``0x442``
+- ``BobHS``: Bob Hall Sensor, id: ``0x442``
 
 - ``BobHR``: Bob Heart Rate, id ``0x444``
