@@ -1,3 +1,4 @@
-# CAN Tools
+# poliCANbent
 
-CAN documentation and useful tools
+Documentation, tools and files useful to interface with the CAN Bus system of
+team Policumbent
