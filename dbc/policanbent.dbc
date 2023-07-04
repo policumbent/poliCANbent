@@ -29,4 +29,4 @@ BO_ 1090 BobHS: 4 Vector__XXX
  SG_ HsDistance : 16|16@1+ (1,0) [0|9000] "m" Vector__XXX
 
 BO_ 1092 BobHR: 1 Vector__XXX
- SG_ HeartRate : 0|8@1+ (1,0) [0|0] "bpm" Vector__XXX
+ SG_ HeartRate : 0|8@1+ (1,0) [0|250] "bpm" Vector__XXX
