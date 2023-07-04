@@ -19,8 +19,15 @@ messages and signals
 
 The ``dbc`` subfolder contains the ``.dbc`` file(s) of our CAN system.
 
+To visualize (and, occasionally, to modify) the ``.dbc`` file, you can use
+[this ``.dbc`` online editor](https://www.csselectronics.com/pages/dbc-editor-can-bus-database).
+
 ## Libs
 
 The ``libs`` subfolder contains the ``.h`` and ``.c`` files exported by
 [``cantools``](https://github.com/cantools/cantools) given our
 [``.dbc`` file](/dbc/policanbent.dbc).
+
+In order to use these libraries, you have to copy them in the project that needs
+them. In doing so, you can access the generated functions just importing the
+``.h`` file in your source code and compiling it with the ``.c`` of the library.

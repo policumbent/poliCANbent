@@ -59,7 +59,7 @@ It encodes the following signals:
 | Name         | Start | Len | Factor | Offset | Min | Max | Unit | Comment |
 |--------------|:-----:|:---:|:------:|:------:|:---:|:---:|:----:|---------|
 | RxTimeout    | 0     | 1   | 1      | 0      | 0   | 1   | -    | The receiver is in timeout (didn't receive in a given time) |
-| TelekBattery | 1     | 7   | 1      | 0      | 0   | 100 | -    | Battery percentage of Telekhambion |
+| TelekBattery | 1     | 7   | 1      | 0      | 0   | 100 | %    | Battery percentage of Telekhambion |
 | RxShifting   | 8     | 2   | 1      | 0      | 0   | 3   | -    | Shifting information received from Telekhambion |
 
 ### Raspberry Pi
