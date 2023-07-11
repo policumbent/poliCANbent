@@ -31,10 +31,12 @@
     - ``00001``: Greta (Cerberus gearbox receiver)
     - ``00010``: gearbox
 - ``0010``: Raspberry Pi/Bob data sending
-    - ``00001``: hall sensor speed / displacement
-    - ``00010``: SRM powermeter power and pedals' RPM
+    - ``00001``: SRM power
+    - ``00010``: SRM pedals' RPM
+    - ``00011``: hall sensor speed
+    - ``00100``: hall sensor displacement
     <!-- - ``00110``: accelerometer -->
-    - ``00100``: heart-rate
+    - ``00110``: heart-rate
 - ``0100``: Miriam
     - ``00001``: GPS computed speed / displacement
     <!-- - ``00010``: GPS coordinates(?) -->
@@ -49,8 +51,12 @@
 
 - ``GbData``: Gearbox data message, id: ``0x422``
 
-- ``BobSRM``: Bob SRM, id: ``0x441``
+- ``BobSrmPower``: Bob SRM Power, id: ``0x441``
 
-- ``BobHS``: Bob Hall Sensor, id: ``0x442``
+- ``BobSrmCadence``: Bob SRM Cadence, id: ``0x442``
 
-- ``BobHR``: Bob Heart Rate, id ``0x444``
+- ``BobHsSpeed``: Bob Hall Sensor Speed, id: ``0x443``
+
+- ``BobHsDisplacement``: Bob Hall Sensor Displacement, id: ``0x444``
+
+- ``BobHR``: Bob Heart Rate, id ``0x446``

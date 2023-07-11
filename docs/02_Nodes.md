@@ -64,48 +64,71 @@ It encodes the following signals:
 
 ### Raspberry Pi
 
-The Raspberry Pi has three types of messages:
-- [``BobHS``](#bobhs)
-- [``BobSRM``](#bobsrm)
+The Raspberry Pi has five types of messages:
+- [``BobSrmPower``](#bobsrmpower)
+- [``BobSrmCadence``](#bobsrmcadence)
+- [``BobHsSpeed``](#bobhsspeed)
+- [``BobHsDisplacement``](#bobhsdisplacement)
 - [``BobHR``](#bobhr)
 
-#### BobSRM
+#### BobSrmPower
 
-- ``BobSRM`` encodes the data collected by the on-board SRM Power Meter
+- ``BobSrmPower`` encodes the power computed by the on-board SRM Power Meter
 - ID: ``0x441``
-- DLC: ``4``
+- DLC: ``2``
 
 It encodes the following signals:
 
 | Name       | Start | Len | Factor | Offset | Min | Max | Unit | Comment |
 |------------|:-----:|:---:|:------:|:------:|:---:|:---:|:----:|---------|
 | SrmPower   | 0     | 16  | 0.1    | 0      | 0   | 1000| W    | Power read by SRM Power Meter |
+
+#### BobSrmCadence
+
+- ``BobSrmCadence`` encodes the pedals cadence computed by the on-board SRM Power Meter
+- ID: ``0x442``
+- DLC: ``2``
+
+It encodes the following signals:
+
+| Name       | Start | Len | Factor | Offset | Min | Max | Unit | Comment |
+|------------|:-----:|:---:|:------:|:------:|:---:|:---:|:----:|---------|
 | SrmCadence | 16    | 16  | 0.1    | 0      | 0   | 1000| rpm  | Cadence read by SRM Power Meter |
 
-#### BobHS
+#### BobHsSpeed
 
 - ``BobSRM`` encodes the data collected by the on-board velocity Hall Sensor
-- ID: ``0x442``
-- DLC: ``4``
+- ID: ``0x443``
+- DLC: ``2``
 
 It encodes the following signals:
 
 | Name       | Start | Len | Factor | Offset | Min | Max | Unit | Comment |
 |------------|:-----:|:---:|:------:|:------:|:---:|:---:|:----:|---------|
 | HsSpeed    | 0     | 16  | 0.01   | 0      | 0   | 200 | km/h | Speed computed by Hall Sensor |
+
+#### BobHsDisplacement
+
+- ``BobHsDisplacement`` encodes the pedals cadence computed by the on-board SRM Power Meter
+- ID: ``0x444``
+- DLC: ``2``
+
+It encodes the following signals:
+
+| Name       | Start | Len | Factor | Offset | Min | Max | Unit | Comment |
+|------------|:-----:|:---:|:------:|:------:|:---:|:---:|:----:|---------|
 | HsDistance | 16    | 16  | 1      | 0      | 0   | 9000| m    | Distance computed by Hall Sensor |
 
 #### BobHR
 
 - ``BobSRM`` encodes the data collected by the on-board velocity Hall Sensor
-- ID: ``0x442``
-- DLC: ``4``
+- ID: ``0x446``
+- DLC: ``1``
 
 It encodes the following signals:
 
 | Name       | Start | Len | Factor | Offset | Min | Max | Unit | Comment |
 |------------|:-----:|:---:|:------:|:------:|:---:|:---:|:----:|---------|
-| HsSpeed    | 0     | 16  | 0.01   | 0      | 0   | 200 | km/h | Speed computed by Hall Sensor |
-| HsDistance | 16    | 16  | 1      | 0      | 0   | 9000| m    | Distance computed by Hall Sensor |
+| HeartRate  | 0     | 8   | 1      | 0      | 0   | 250 | bpm  | Heart rate received by Bob |
 
 ### Miriam
