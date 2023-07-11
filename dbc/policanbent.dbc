@@ -20,13 +20,18 @@ BO_ 1057 RxGreta: 2 Vector__XXX
  SG_ RxShifting : 8|2@1+ (1,0) [0|3] "" Vector__XXX
  SG_ RxTimeout : 0|1@1+ (1,0) [0|1] "" Vector__XXX
 
-BO_ 1089 BobSRM: 4 Vector__XXX
+BO_ 1089 BobSrmPower: 2 Vector__XXX
  SG_ SrmPower : 0|16@1+ (0.1,0) [0|1000] "W" Vector__XXX
- SG_ SrmCadence : 16|16@1+ (0.1,0) [0|1000] "rpm" Vector__XXX
 
-BO_ 1090 BobHS: 4 Vector__XXX
+BO_ 1090 BobSrmCadence: 2 Vector__XXX
+ SG_ SrmCadence : 0|16@1+ (0.1,0) [0|1000] "rpm" Vector__XXX
+
+BO_ 1091 BobHsSpeed: 2 Vector__XXX
  SG_ HsSpeed : 0|16@1+ (0.01,0) [0|200] "km/h" Vector__XXX
- SG_ HsDistance : 16|16@1+ (1,0) [0|9000] "m" Vector__XXX
 
-BO_ 1092 BobHR: 1 Vector__XXX
+BO_ 1092 BobHsDisplacement: 2 Vector__XXX
+ SG_ HsDisplacement : 0|16@1+ (0.1,1) [0|9000] "m" Vector__XXX
+
+BO_ 1094 BobHR: 1 Vector__XXX
  SG_ HeartRate : 0|8@1+ (1,0) [0|250] "bpm" Vector__XXX
+
