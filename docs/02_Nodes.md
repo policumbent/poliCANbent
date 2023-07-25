@@ -48,6 +48,9 @@ It encodes the following signals:
 
 ### Greta
 
+- [``GretaError``](#gretaerror)
+- [``GretaData``](#gretadata)
+
 Greta has two types of messages. Recall that it is present only on Cerberus.
 
 #### GretaError
