@@ -45,9 +45,11 @@
 
 ### Current IDs
 
+- ``GretaError``: Greta receiver error (Cerberus), id: ``0x221``
+
 - ``GbError``: Gearbox error message, id: ``0x222``
 
-- ``RxGreta``: Greta receiver (Cerberus), id: ``0x421``
+- ``GretaData``: Greta receiver data (Cerberus), id: ``0x421``
 
 - ``GbData``: Gearbox data message, id: ``0x422``
 

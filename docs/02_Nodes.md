@@ -48,9 +48,23 @@ It encodes the following signals:
 
 ### Greta
 
-Greta has only one type of message. Recall that it is present only on Cerberus.
+Greta has two types of messages. Recall that it is present only on Cerberus.
 
-- ``RxGreta`` encodes the error diagnostics message type for the gearbox
+#### GretaError
+
+- ``GretaError`` encodes the error message type for the gearbox receiver
+- ID: ``0x221``
+- DLC: ``1``
+
+It encodes the following signals:
+
+| Name         | Start | Len | Factor | Offset | Min | Max | Unit | Comment |
+|--------------|:-----:|:---:|:------:|:------:|:---:|:---:|:----:|---------|
+| TimeOutError | 0     | 1   | 1      | 0      | 0   | 1   | -    | 1 if a receiver timeout has occurred |
+
+#### GretaData
+
+- ``GretaData`` encodes the data message type for the gearbox receiver
 - ID: ``0x421``
 - DLC: ``2``
 
@@ -58,9 +72,8 @@ It encodes the following signals:
 
 | Name         | Start | Len | Factor | Offset | Min | Max | Unit | Comment |
 |--------------|:-----:|:---:|:------:|:------:|:---:|:---:|:----:|---------|
-| RxTimeout    | 0     | 1   | 1      | 0      | 0   | 1   | -    | The receiver is in timeout (didn't receive in a given time) |
-| TelekBattery | 1     | 7   | 1      | 0      | 0   | 100 | %    | Battery percentage of Telekhambion |
-| RxShifting   | 8     | 2   | 1      | 0      | 0   | 3   | -    | Shifting information received from Telekhambion |
+| TelekBattery | 0     | 7   | 1      | 0      | 0   | 100 | %    | Battery percentage of Telekhambion |
+| RxShifting   | 7     | 2   | 1      | 0      | 0   | 3   | -    | Shifting information received from Telekhambion |
 
 ### Raspberry Pi
 
