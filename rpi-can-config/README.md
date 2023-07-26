@@ -2,16 +2,17 @@
 
 ## MCP2515 SPI-to-CAN module pinout
 
-```
-RPi Pin    RPi Label     CAN Module
-17---------3.3V----------VCC
-20---------GND-----------GND
-19---------GPIO10--------MOSI (SI)
-21---------GPIO9---------MISO (SO)
-22---------GPIO25--------INT
-23---------GPIO11--------SCK
-24---------GPIO8---------CS
-```
+
+| RPi Pin | RPi Label | CAN Module |
+|:-------:|:---------:|:----------:|
+| 17 	  | 3.3V      | VCC |
+| 20 	  | GND       | GND |
+| 19 	  | GPIO10    | MOSI (SI) |
+| 21 	  | GPIO9     | MISO (SO) |
+| 22 	  | GPIO25    | INT |
+| 23 	  | GPIO11    | SCK |
+| 24 	  | GPIO8     | CS |
+
 
 [Useful website for Raspberry Pi pinout](https://pinout.xyz/#)
 
