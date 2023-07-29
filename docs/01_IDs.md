@@ -39,7 +39,7 @@
     - ``00110``: heart-rate
 - ``0100``: Miriam
     - ``00001``: GPS computed speed / displacement
-    <!-- - ``00010``: GPS coordinates(?) -->
+    - ``00010``: GPS coordinates
 - ``1000``: Other low-priority stuff
     - ``10000``: air quality data
 
@@ -62,3 +62,7 @@
 - ``BobHsDisplacement``: Bob Hall Sensor Displacement, id: ``0x444``
 
 - ``BobHR``: Bob Heart Rate, id ``0x446``
+
+- ``MiriamGpsData``: Miriam GPS computed speed and displacement, id: ``0x481``
+
+- ``MiriamGpsCoords``: Miriam GPS coordinates (latitude, longitude), id: ``0x482``
