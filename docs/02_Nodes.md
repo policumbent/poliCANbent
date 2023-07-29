@@ -2,7 +2,7 @@
 
 ## List of nodes
 
-- [Gearbox](#gearbox)
+- [Gearbox (Camilla)](#gearbox)
 - [Greta (Cerberus' gearbox receiver)](#greta)
 - [Raspberry Pi](#raspberry-pi)
 - [Miriam (Telemetry ECU)](#miriam)
@@ -148,3 +148,35 @@ It encodes the following signals:
 | HeartRate  | 0     | 8   | 1      | 0      | 0   | 250 | bpm  | Heart rate received by Bob |
 
 ### Miriam
+
+Miriam (currently) has two types of messages:
+- [``MiriamGpsData``](#miriamgpsdata)
+- [``MiriamGpsCoords``](#miriamgpscoords)
+
+#### MiriamGpsData
+
+- ``MiriamGpsData`` encodes the data computed by the GPS system on Miriam
+- ID: ``0x481``
+- DLC: ``4``
+
+It encodes the following signals:
+
+| Name            | Start | Len | Factor | Offset | Min | Max   | Unit | Comment |
+|-----------------|:-----:|:---:|:------:|:------:|:---:|:-----:|:----:|---------|
+| GpsSpeed        | 0     | 16  | 0.01   | 0      | 0   | 200   | km/h | Speed computed from GPS data |
+| GpsDisplacement | 16    | 16  | 1      | 0      | 0   | 20000 | m    | Displacement computed from GPS data |
+
+#### MiriamGpsCoords
+
+- ``MiriamGpsCoords`` encodes the coordinates given by the GPS system on Miriam
+- ID: ``0x482``
+- DLC: ``8``
+
+It encodes the following signals:
+
+| Name         | Start | Len | Factor   | Offset | Min  | Max | Unit | Comment |
+|--------------|:-----:|:---:|:--------:|:------:|:----:|:---:|:----:|---------|
+| GpsLatitude  | 0     | 32  | 0.000001 | 0      | -90  | 90  | km/h | Latitude given by GPS |
+| GpsLongitude | 32    | 32  | 0.000001 | 0      | -180 | 180 | m    | Longitude given by GPS |
+
+_Notice: both the encoded signals are signed!_
