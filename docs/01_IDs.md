@@ -40,8 +40,9 @@
 - ``0100``: Miriam
     - ``00001``: GPS computed speed / displacement
     - ``00010``: GPS coordinates
-- ``1000``: Other low-priority stuff
-    - ``10000``: air quality data
+    - ``00100``: Air quality data: CO2 ppm / TVOC
+    - ``00101``: Bike temperature
+    - ``01000``: GPS altitude
 
 ### Current IDs
 
@@ -66,3 +67,9 @@
 - ``MiriamGpsData``: Miriam GPS computed speed and displacement, id: ``0x481``
 
 - ``MiriamGpsCoords``: Miriam GPS coordinates (latitude, longitude), id: ``0x482``
+
+- ``MiriamAirQuality``: Miriam air quality data (CO2 level, TVOC), id: ``0x484``
+
+- ``MiriamTemp``: Miriam read temperature, id: ``0x485``
+
+- ``MiriamGpsOther``: Miriam GPS altitude, id: ``0x488``

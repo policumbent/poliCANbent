@@ -152,6 +152,9 @@ It encodes the following signals:
 Miriam (currently) has two types of messages:
 - [``MiriamGpsData``](#miriamgpsdata)
 - [``MiriamGpsCoords``](#miriamgpscoords)
+- [``MiriamAirQuality``](#miriamairquality)
+- [``MiriamTemp``](#miriamtemp)
+- [``MiriamGpsOther``](#miriamgpsother)
 
 #### MiriamGpsData
 
@@ -180,3 +183,41 @@ It encodes the following signals:
 | GpsLongitude | 32    | 32  | 0.000001 | 0      | -180 | 180 | m    | Longitude given by GPS |
 
 _Notice: both the encoded signals are signed!_
+
+#### MiriamAirQuality
+
+- ``MiriamAirQuality`` encodes the air quality data read by the sensor connected
+to Miriam
+- ID: ``0x484``
+- DLC: ``8``
+
+It encodes the following signals:
+
+| Name     | Start | Len | Factor  | Offset | Min  | Max  | Unit  | Comment |
+|----------|:-----:|:---:|:-------:|:------:|:----:|:----:|:-----:|---------|
+| CO2Level | 0     | 32  | 0.00001 | 0      | 200  | 3000 | ppm   | C02 level (in ppm) in the bike |
+| TVOC     | 32    | 32  | 0.00001 | 0      | 0    | 4000 | level | TVOC level in the bike |
+
+#### MiriamTemp
+
+- ``MiriamTemp`` encodes the temperature read by the sensor connected to Miriam
+- ID: ``0x485``
+- DLC: ``2``
+
+It encodes the following signals:
+
+| Name        | Start | Len | Factor | Offset | Min  | Max  | Unit | Comment |
+|-------------|:-----:|:---:|:------:|:------:|:----:|:----:|:----:|---------|
+| Temperature | 0     | 16  | 0.01   | 0      | 0    | 60   | °C   | Temperature inside the bike |
+
+#### MiriamGpsOther
+
+- ``MiriamGpsOther`` encodes the altitude given by the GPS system on Miriam
+- ID: ``0x488``
+- DLC: ``2``
+
+It encodes the following signals:
+
+| Name     | Start | Len | Factor | Offset | Min  | Max  | Unit | Comment |
+|----------|:-----:|:---:|:------:|:------:|:----:|:----:|:----:|---------|
+| Altitude | 0     | 16  | 1      | 0      | 0    | 3000 | m    | Altitude computed by the GPS |
