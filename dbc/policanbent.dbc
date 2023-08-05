@@ -25,7 +25,7 @@ BO_ 1091 BobHsSpeed: 2 Vector__XXX
  SG_ HsSpeed : 0|16@1+ (0.01,0) [0|200] "km/h" Vector__XXX
 
 BO_ 1092 BobHsDisplacement: 2 Vector__XXX
- SG_ HsDisplacement : 0|16@1+ (0.1,1) [0|20000] "m" Vector__XXX
+ SG_ HsDisplacement : 0|16@1+ (0.1,0) [0|20000] "m" Vector__XXX
 
 BO_ 1094 BobHR: 1 Vector__XXX
  SG_ HeartRate : 0|8@1+ (1,0) [0|250] "bpm" Vector__XXX
