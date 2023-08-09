@@ -142,9 +142,9 @@ understand them, it can be convenient to Google them.
 
 In the following example, ``error -110`` means a timeout error.
 ```
-[ 	##.######] mcp251x spi0.0: MCP251x didn't enter in conf mode after reset
-[ 	##.######] mcp251x spi0.0: Probe failed, err=110
-[ 	##.######] mcp251x: probe of spi0.0 failed with error -110
+[   ##.######] mcp251x spi0.0: MCP251x didn't enter in conf mode after reset
+[   ##.######] mcp251x spi0.0: Probe failed, err=110
+[   ##.######] mcp251x: probe of spi0.0 failed with error -110
 ```
 
 In some cases, it can show the ``successfully initialized`` message, followed by
