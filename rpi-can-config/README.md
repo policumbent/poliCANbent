@@ -119,9 +119,9 @@ lsmod | grep "can"
 
 If the modules are correctly loaded, you should see the following:
 ```
-can_raw			###### 	0
-can				###### 	1 can_raw
-can_dev			######	1 mcp251x
+can_raw     ###### 	0
+can         ###### 	1 can_raw
+can_dev     ######	1 mcp251x
 ```
 
 ### Check SPI connection between the RPi and the MCP2515
