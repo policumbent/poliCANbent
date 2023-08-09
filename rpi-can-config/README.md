@@ -11,13 +11,13 @@ In this README you will find:
 
 | RPi Pin | RPi Label | CAN Module |
 |:-------:|:---------:|:----------:|
-| 17 	  | 3.3V      | VCC |
-| 20 	  | GND       | GND |
-| 19 	  | GPIO10    | MOSI (SI) |
-| 21 	  | GPIO9     | MISO (SO) |
-| 22 	  | GPIO25    | INT |
-| 23 	  | GPIO11    | SCK |
-| 24 	  | GPIO8     | CS |
+| 17 	    | 3.3V      | VCC |
+| 20 	    | GND       | GND |
+| 19 	    | GPIO10    | MOSI (SI) |
+| 21 	    | GPIO9     | MISO (SO) |
+| 22 	    | GPIO25    | INT |
+| 23 	    | GPIO11    | SCK |
+| 24 	    | GPIO8     | CS |
 
 
 [Useful website for Raspberry Pi pinout](https://pinout.xyz/#)
@@ -151,6 +151,23 @@ In some cases, it can show the ``successfully initialized`` message, followed by
 an error. Usually, by empirical experience, it happens when the connection
 between the MCP2515 and the TJA1050 is not working, so in that case you should
 check the physical connection between the two integrated circuits.
+
+_Note: if you modify something, you should reboot the system in order to restart
+SPI and see the results of your changes._ To avoid that, you can execute two
+commands that "restart" the SPI OS module:
+```Bash
+rmmod spi_bcm2835
+modprobe spi_bcm2835
+```
+
+``spi_bcm2835`` is the name of the SPI OS module on the newest Raspberry's,
+please check if you Raspberry has a different module, you can do that performing
+the following:
+```Bash
+lsmod | grep "spi"
+```
+
+As a result, you will find the SPI module listed with ``lsmod``.
 
 ## Other useful resources
 
