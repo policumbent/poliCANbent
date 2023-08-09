@@ -119,9 +119,9 @@ lsmod | grep "can"
 
 If the modules are correctly loaded, you should see the following:
 ```
-can_raw     ###### 	0
-can         ###### 	1 can_raw
-can_dev     ######	1 mcp251x
+can_raw     ######  0
+can         ######  1 can_raw
+can_dev     ######  1 mcp251x
 ```
 
 ### Check SPI connection between the RPi and the MCP2515
@@ -154,21 +154,28 @@ check the physical connection between the two integrated circuits or the
 powering of the TJA1050.
 
 _Note: if you modify something, you should reboot the system in order to restart
-SPI and see the results of your changes._ To avoid that, you can execute two
-commands that "restart" the SPI OS module:
-```Bash
-rmmod spi_bcm2835
-modprobe spi_bcm2835
-```
+SPI and see the results of your changes._ To avoid that, you can "restart" the
+SPI OS module:
 
-``spi_bcm2835`` is the name of the SPI OS module on the newest Raspberry's,
-please check if you Raspberry has a different module, you can do that performing
-the following:
-```Bash
-lsmod | grep "spi"
-```
+1. Find the name of the SPI module
 
-As a result, you will find the SPI module listed with ``lsmod``.
+   ``spi_bcm2835`` is the name of the SPI OS module on the newest Raspberry's,
+   please check if you Raspberry has a different module, you can do that performing
+   the following:
+
+   ```Bash
+   lsmod | grep "spi"
+   ```
+
+   As a result, you will find the SPI module listed with ``lsmod``.
+
+1. Remove and re-add the module (assuming that the name is ``spi_bcm2835``,
+   otherwise change it with the result of the previous point):
+
+   ```Bash
+   rmmod spi_bcm2835
+   modprobe spi_bcm2835
+   ```
 
 ## Other useful resources
 
@@ -180,3 +187,4 @@ and use this README before checking them.
 - [CAN communication on the Raspberry PI with SocketCAN](https://www.pragmaticlinux.com/2021/10/can-communication-on-the-raspberry-pi-with-socketcan/)
 - [Automatically bring up a SocketCAN interface on boot](https://www.pragmaticlinux.com/2021/07/automatically-bring-up-a-socketcan-interface-on-boot/)
 - [Raspberry Pi - (Solved) Not able to setup can0](https://forums.raspberrypi.com/viewtopic.php?t=311606)
+- [SPI Reset on Raspberry Pi](https://stackoverflow.com/questions/37698895/spi-reset-on-raspberry-pi-after-gpio-usage#40066584)
