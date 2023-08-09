@@ -150,7 +150,8 @@ In the following example, ``error -110`` means a timeout error.
 In some cases, it can show the ``successfully initialized`` message, followed by
 an error. Usually, by empirical experience, it happens when the connection
 between the MCP2515 and the TJA1050 is not working, so in that case you should
-check the physical connection between the two integrated circuits.
+check the physical connection between the two integrated circuits or the
+powering of the TJA1050.
 
 _Note: if you modify something, you should reboot the system in order to restart
 SPI and see the results of your changes._ To avoid that, you can execute two
