@@ -87,7 +87,7 @@ cansend can0 000#11223344
 
 On the ``candump`` session, if everything is working correctly, you should see:
 ```
-  vcan0  000   [4]  11 22 33 44
+  can0  000   [4]  11 22 33 44
 ```
 
 If it's not, check the [troubleshooting section](#troubleshooting)
