@@ -4,10 +4,10 @@
 sudo apt install can-utils
 
 # configuration of SPI for MCP2515
-sudo cat ./config/config.txt >> /boot/config.txt
+cat ./config/config.txt | sudo tee -a /boot/config.txt
 
 # load CAN modules in OS during boot
-sudo cp ./can.conf /etc/modules-load.d/
+sudo cp ./config/can.conf /etc/modules-load.d/
 
 # setting up CAN interface
-sudo cat ./config/interfaces >> /etc/network/interfaces
+cat ./config/interfaces | sudo tee -a /etc/network/interfaces
