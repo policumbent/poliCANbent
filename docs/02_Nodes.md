@@ -21,16 +21,14 @@ gearbox is the most critical ECU of our bikes.
 
 - ``GbError`` encodes the error diagnostics message type for the gearbox
 - ID: ``0x222``
-- DLC: ``2``
+- DLC: ``1``
 
 It encodes the following signals:
 
 | Name       | Start | Len | Factor | Offset | Min | Max | Unit | Comment |
 |------------|:-----:|:---:|:------:|:------:|:---:|:---:|:----:|---------|
 | GbErrCode  | 0     | 3   | 1      | 0      | 0   | 7   | -    | Gearbox error code |
-| GbMode     | 3     | 1   | 1      | 0      | 0   | 1   | -    | Mode (gearbox/calibration) |
-| GbShifting | 4     | 2   | 1      | 0      | 0   | 3   | -    | Shifting information |
-| GbGear     | 8     | 5   | 1      | 0      | 0   | 16  | -    | Current gear |
+| GbGear     | 3     | 5   | 1      | 0      | 0   | 16  | -    | Current gear |
 
 #### GbData
 
@@ -42,9 +40,7 @@ It encodes the following signals:
 
 | Name       | Start | Len | Factor | Offset | Min | Max | Unit | Comment |
 |------------|:-----:|:---:|:------:|:------:|:---:|:---:|:----:|---------|
-| GbMode     | 0     | 1   | 1      | 0      | 0   | 1   | -    | Mode (gearbox/calibration) |
-| GbShifting | 1     | 2   | 1      | 0      | 0   | 3   | -    | Shifting information |
-| GbGear     | 3     | 5   | 1      | 0      | 0   | 16  | -    | Current gear |
+| GbGear     | 0     | 5   | 1      | 0      | 0   | 16  | -    | Current gear |
 
 ### Greta
 
