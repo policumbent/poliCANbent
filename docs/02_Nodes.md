@@ -5,6 +5,7 @@
 - [Gearbox (Camilla)](#gearbox)
 - [Greta (Cerberus' gearbox receiver)](#greta)
 - [Raspberry Pi](#raspberry-pi)
+- [DumBMS (BCU)](#dumbms-1-and-2)
 - [Miriam (Telemetry ECU)](#miriam)
 
 ### Gearbox
@@ -142,6 +143,46 @@ It encodes the following signals:
 | Name       | Start | Len | Factor | Offset | Min | Max | Unit | Comment |
 |------------|:-----:|:---:|:------:|:------:|:---:|:---:|:----:|---------|
 | HeartRate  | 0     | 8   | 1      | 0      | 0   | 250 | bpm  | Heart rate received by Bob |
+
+### DumBMS (1 and 2)
+
+There could be two DumBMS Control Units on the bike (especially on Cerberus) and
+they have the same messages encoding (N stands for the Control Unit number):
+
+- [``DumbmsNError``](#dumbmsnerror)
+- [``DumbmsNData``](#dumbmsndata)
+
+#### DumbmsNError
+
+- ``DumbmsNError`` encodes the batteries undervoltage detection (if any)
+- ID 1: ``0x280``
+- ID 2: ``0x2A0``
+- DLC: ``1``
+
+It encodes the following signal
+
+| Name          | Start | Len | Factor | Offset | Min | Max | Unit | Comment |
+|---------------|:-----:|:---:|:------:|:------:|:---:|:---:|:----:|---------|
+| Bat0UnderVolt | 0     | 1   | 1      | 0      | 0   | 1   | -    | DumBMS LiPo undervoltage detected |
+| Bat1UnderVolt | 1     | 1   | 1      | 0      | 0   | 1   | -    | 3S slot 1 undervoltage detected |
+| Bat2UnderVolt | 1     | 1   | 1      | 0      | 0   | 1   | -    | 3S slot 2 undervoltage detected |
+| Bat3UnderVolt | 1     | 1   | 1      | 0      | 0   | 1   | -    | 3S slot 3 undervoltage detected |
+| Bat4UnderVolt | 1     | 1   | 1      | 0      | 0   | 1   | -    | 3S slot 4 undervoltage detected |
+
+#### DumbmsNData
+
+- ``DumbmsNData`` encodes the batteries voltages
+- ID 1: ``0x480``
+- ID 2: ``0x4A0``
+- DLC: ``5``
+
+| Name        | Start | Len | Factor | Offset | Min | Max | Unit | Comment |
+|-------------|:-----:|:---:|:------:|:------:|:---:|:---:|:----:|---------|
+| Bat0Voltage | 0     | 8   | 0.1    | 0      | 0   | 1   | -    | DumBMS LiPo voltage |
+| Bat1Voltage | 8     | 8   | 0.1    | 0      | 0   | 1   | -    | 3S slot 1 voltage   |
+| Bat2Voltage | 16    | 8   | 0.1    | 0      | 0   | 1   | -    | 3S slot 2 voltage   |
+| Bat3Voltage | 24    | 8   | 0.1    | 0      | 0   | 1   | -    | 3S slot 3 voltage   |
+| Bat4Voltage | 32    | 8   | 0.1    | 0      | 0   | 1   | -    | 3S slot 4 voltage   |
 
 ### Miriam
 

@@ -52,6 +52,10 @@
 
 - ``GbError``: Gearbox error message, id: ``0x222``
 
+- ``Dumbms1Error``: DumBMS-1 error message, id: ``0x280``
+
+- ``Dumbms2Error``: DumBMS-2 error message, id: ``0x2A0``
+
 - ``GretaData``: Greta receiver data (Cerberus), id: ``0x421``
 
 - ``GbData``: Gearbox data message, id: ``0x422``
@@ -64,7 +68,11 @@
 
 - ``BobHsDisplacement``: Bob Hall Sensor Displacement, id: ``0x444``
 
-- ``BobHR``: Bob Heart Rate, id ``0x446``
+- ``BobHR``: Bob Heart Rate, id: ``0x446``
+
+- ``Dumbms1Data``: DumBMS-1 Data, id: ``0x480``
+
+- ``Dumbms2Data``: DumBMS-2 Data, id: ``0x4A0``
 
 - ``MiriamGpsData``: Miriam GPS computed speed and displacement, id: ``0x501``
 
