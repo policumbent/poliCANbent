@@ -37,7 +37,9 @@
     - ``00100``: hall sensor displacement
     <!-- - ``00110``: accelerometer -->
     - ``00110``: heart-rate
-- ``0100``: Miriam
+- ``0100``: DumBMS-1
+- ``0101``: DumBMS-2 (if needed)
+- ``1000``: Miriam
     - ``00001``: GPS computed speed / displacement
     - ``00010``: GPS coordinates
     - ``00100``: Air quality data: CO2 ppm / TVOC
@@ -64,12 +66,12 @@
 
 - ``BobHR``: Bob Heart Rate, id ``0x446``
 
-- ``MiriamGpsData``: Miriam GPS computed speed and displacement, id: ``0x481``
+- ``MiriamGpsData``: Miriam GPS computed speed and displacement, id: ``0x501``
 
-- ``MiriamGpsCoords``: Miriam GPS coordinates (latitude, longitude), id: ``0x482``
+- ``MiriamGpsCoords``: Miriam GPS coordinates (latitude, longitude), id: ``0x502``
 
-- ``MiriamAirQuality``: Miriam air quality data (CO2 level, TVOC), id: ``0x484``
+- ``MiriamAirQuality``: Miriam air quality data (CO2 level, TVOC), id: ``0x504``
 
-- ``MiriamTemp``: Miriam read temperature, id: ``0x485``
+- ``MiriamTemp``: Miriam read temperature, id: ``0x505``
 
-- ``MiriamGpsOther``: Miriam GPS altitude, id: ``0x488``
+- ``MiriamGpsOther``: Miriam GPS altitude, id: ``0x508``
