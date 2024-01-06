@@ -2,11 +2,11 @@
 
 ## List of nodes
 
-- [Gearbox (Camilla)](#gearbox)
+- [Camilla (Gearbox Control Unit)](#gearbox)
 - [Greta (Cerberus' gearbox receiver)](#greta)
 - [Raspberry Pi](#raspberry-pi)
-- [DumBMS (BCU)](#dumbms-1-and-2)
-- [Miriam (Telemetry ECU)](#miriam)
+- [DumBMS (Battery Control Unit)](#dumbms-1-and-2)
+- [Miriam (Telemetry Control Unit)](#miriam)
 
 ### Gearbox
 
