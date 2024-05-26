@@ -19,10 +19,10 @@
 
 #### Message type
 
-- ``00``: debug
+- ``00``: debug / command
 - ``01``: error
-- ``10``: data
-<!-- - ``11``: info -->
+- ``10``: primary data (e.g.: on-screen data)
+- ``11``: secondary data / other
 
 #### From (Device/Specific)
 
@@ -37,14 +37,19 @@
     - ``00100``: hall sensor displacement
     <!-- - ``00110``: accelerometer -->
     - ``00110``: heart-rate
+- ``0011``: whereami (GNSS)
+    - ``00000``: parallel speed /distance
+    - ``00010``: raw speed / distance
+    - ``00100``: coordinates
+    - ``01000``: position uncertainty
 - ``0100``: DumBMS-1
 - ``0101``: DumBMS-2 (if needed)
-- ``1000``: Miriam
+<!-- - ``1000``: Miriam
     - ``00001``: GPS computed speed / displacement
     - ``00010``: GPS coordinates
     - ``00100``: Air quality data: CO2 ppm / TVOC
     - ``00101``: Bike temperature
-    - ``01000``: GPS altitude
+    - ``01000``: GPS altitude -->
 
 ### Current IDs
 
@@ -70,11 +75,19 @@
 
 - ``BobHR``: Bob Heart Rate, id: ``0x446``
 
+- ``whereamiData``: whereami parallel speed and distance: id: ``0x460``
+
+- ``whereamiRawData``: whereami raw speed and distance: id: ``0x462``
+
+- ``whereamiCoords``: whereami GNSS coordinates, id: ``0x464``
+
+- ``whereamiPosUncert``: whereami GNSS position uncertainty, id: ``0x468``
+
 - ``Dumbms1Data``: DumBMS-1 Data, id: ``0x480``
 
 - ``Dumbms2Data``: DumBMS-2 Data, id: ``0x4A0``
 
-- ``MiriamGpsData``: Miriam GPS computed speed and displacement, id: ``0x501``
+<!-- - ``MiriamGpsData``: Miriam GPS computed speed and displacement, id: ``0x501``
 
 - ``MiriamGpsCoords``: Miriam GPS coordinates (latitude, longitude), id: ``0x502``
 
@@ -82,4 +95,4 @@
 
 - ``MiriamTemp``: Miriam read temperature, id: ``0x505``
 
-- ``MiriamGpsOther``: Miriam GPS altitude, id: ``0x508``
+- ``MiriamGpsOther``: Miriam GPS altitude, id: ``0x508`` -->

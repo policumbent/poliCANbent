@@ -34,14 +34,14 @@ Run ```setup.sh```: every command is explained in this README.
 
 ### Configure SPI for MCP2515
 
-Append the following lines in ```/boot/config.txt```:
+Append the following lines in ```/boot/firmware/config.txt```:
 
 ```
 ### SPI ###
 dtparam=spi=on
 
 ### CAN-BUS overlay ###
-dtoverlay=mcp2515-can0,oscillator=8000000,interrupt=25
+dtoverlay=mcp2515-can0,oscillator=16000000,interrupt=25
 dtoverlay=spi-bcm2835
 ```
 
