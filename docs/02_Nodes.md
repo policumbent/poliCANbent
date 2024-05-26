@@ -6,7 +6,6 @@
 - [Greta (Cerberus' gearbox receiver)](#greta)
 - [Raspberry Pi](#raspberry-pi)
 - [DumBMS (Battery Control Unit)](#dumbms-1-and-2)
-- [Miriam (Telemetry Control Unit)](#miriam)
 
 ### Gearbox
 
@@ -184,77 +183,65 @@ It encodes the following signal
 | Bat3Voltage | 24    | 8   | 0.1    | 0      | 0   | 1   | -    | 3S slot 3 voltage   |
 | Bat4Voltage | 32    | 8   | 0.1    | 0      | 0   | 1   | -    | 3S slot 4 voltage   |
 
-### Miriam
+### whereami
 
-Miriam (currently) has two types of messages:
-- [``MiriamGpsData``](#miriamgpsdata)
-- [``MiriamGpsCoords``](#miriamgpscoords)
-- [``MiriamAirQuality``](#miriamairquality)
-- [``MiriamTemp``](#miriamtemp)
-- [``MiriamGpsOther``](#miriamgpsother)
+whereami has two types of messages:
+- [``whereamiData``](#whereamidata)
+- [``whereamiRawData``](#whereamirawdata)
+- [``whereamiCoords``](#whereamicoords)
+- [``whereamiPosUncert``](#whereamiposuncert)
 
-#### MiriamGpsData
+#### whereamiData
 
-- ``MiriamGpsData`` encodes the data computed by the GPS system on Miriam
-- ID: ``0x481``
+- ``whereamiData`` encodes the data gathered by the GNSS system and linearized
+with respect to the straight track
+- ID: ``0x460``
 - DLC: ``4``
 
 It encodes the following signals:
 
-| Name            | Start | Len | Factor | Offset | Min | Max   | Unit | Comment |
-|-----------------|:-----:|:---:|:------:|:------:|:---:|:-----:|:----:|---------|
-| GpsSpeed        | 0     | 16  | 0.01   | 0      | 0   | 200   | km/h | Speed computed from GPS data |
-| GpsDisplacement | 16    | 16  | 1      | 0      | 0   | 20000 | m    | Displacement computed from GPS data |
+| Name     | Start | Len | Factor | Offset | Min | Max   | Unit | Comment |
+|----------|:-----:|:---:|:------:|:------:|:---:|:-----:|:----:|---------|
+| Speed    | 0     | 16  | 0.01   | 0      | 0   | 200   | km/h | Parallel speed computed from GNSS data |
+| Distance | 16    | 16  | 1      | 0      | 0   | 20000 | m    | Parallel distance computed from GNSS data |
 
-#### MiriamGpsCoords
+#### whereamiRawData
 
-- ``MiriamGpsCoords`` encodes the coordinates given by the GPS system on Miriam
-- ID: ``0x482``
+- ``whereamiRawData`` encodes the raw data gathered by the GNSS
+- ID: ``0x462``
+- DLC: ``4``
+
+It encodes the following signals:
+
+| Name        | Start | Len | Factor | Offset | Min | Max   | Unit | Comment |
+|-------------|:-----:|:---:|:------:|:------:|:---:|:-----:|:----:|---------|
+| RawSpeed    | 0     | 16  | 0.01   | 0      | 0   | 200   | km/h | Raw speed computed from GNSS data |
+| RawDistance | 16    | 16  | 1      | 0      | 0   | 20000 | m    | Raw distance computed from GNSS data |
+
+#### whereamiCoords
+
+- ``whereamiCoords`` encodes the coordinates given by the GNSS system
+- ID: ``0x464``
 - DLC: ``8``
 
 It encodes the following signals:
 
-| Name         | Start | Len | Factor   | Offset | Min  | Max | Unit | Comment |
-|--------------|:-----:|:---:|:--------:|:------:|:----:|:---:|:----:|---------|
-| GpsLatitude  | 0     | 32  | 0.000001 | 0      | -90  | 90  | km/h | Latitude given by GPS |
-| GpsLongitude | 32    | 32  | 0.000001 | 0      | -180 | 180 | m    | Longitude given by GPS |
+| Name      | Start | Len | Factor   | Offset | Min  | Max | Unit | Comment |
+|-----------|:-----:|:---:|:--------:|:------:|:----:|:---:|:----:|---------|
+| Latitude  | 0     | 32  | 0.000001 | 0      | -90  | 90  | km/h | Latitude given by GNSS |
+| Longitude | 32    | 32  | 0.000001 | 0      | -180 | 180 | m    | Longitude given by GNSS |
 
 _Notice: both the encoded signals are signed!_
 
-#### MiriamAirQuality
+#### whereamiPosUncert
 
-- ``MiriamAirQuality`` encodes the air quality data read by the sensor connected
-to Miriam
-- ID: ``0x484``
-- DLC: ``8``
-
-It encodes the following signals:
-
-| Name     | Start | Len | Factor  | Offset | Min  | Max  | Unit  | Comment |
-|----------|:-----:|:---:|:-------:|:------:|:----:|:----:|:-----:|---------|
-| CO2Level | 0     | 32  | 0.00001 | 0      | 200  | 3000 | ppm   | C02 level (in ppm) in the bike |
-| TVOC     | 32    | 32  | 0.00001 | 0      | 0    | 4000 | level | TVOC level in the bike |
-
-#### MiriamTemp
-
-- ``MiriamTemp`` encodes the temperature read by the sensor connected to Miriam
-- ID: ``0x485``
+- ``whereamiPosUncert`` encodes the position uncertainty computed by the GNSS
+system
+- ID: ``0x468``
 - DLC: ``2``
 
 It encodes the following signals:
 
-| Name        | Start | Len | Factor | Offset | Min  | Max  | Unit | Comment |
-|-------------|:-----:|:---:|:------:|:------:|:----:|:----:|:----:|---------|
-| Temperature | 0     | 16  | 0.01   | 0      | 0    | 60   | °C   | Temperature inside the bike |
-
-#### MiriamGpsOther
-
-- ``MiriamGpsOther`` encodes the altitude given by the GPS system on Miriam
-- ID: ``0x488``
-- DLC: ``2``
-
-It encodes the following signals:
-
-| Name     | Start | Len | Factor | Offset | Min  | Max  | Unit | Comment |
-|----------|:-----:|:---:|:------:|:------:|:----:|:----:|:----:|---------|
-| Altitude | 0     | 16  | 1      | 0      | 0    | 3000 | m    | Altitude computed by the GPS |
+| Name           | Start | Len | Factor | Offset | Min | Max   | Unit | Comment |
+|----------------|:-----:|:---:|:------:|:------:|:---:|:-----:|:----:|---------|
+| PosUncertainty | 0     | 16  | 0.01   | 0      | 0   | 100   | m    | Position uncertainty computed by GNSS system |
