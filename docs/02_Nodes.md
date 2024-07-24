@@ -6,6 +6,7 @@
 - [Greta (Cerberus' gearbox receiver)](#greta)
 - [Raspberry Pi](#raspberry-pi)
 - [DumBMS (Battery Control Unit)](#dumbms-1-and-2)
+- [whereami](#whereami)
 
 ### Gearbox
 
