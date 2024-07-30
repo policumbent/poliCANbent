@@ -229,8 +229,8 @@ It encodes the following signals:
 
 | Name      | Start | Len | Factor   | Offset | Min  | Max | Unit | Comment |
 |-----------|:-----:|:---:|:--------:|:------:|:----:|:---:|:----:|---------|
-| Latitude  | 0     | 32  | 0.000001 | 0      | -90  | 90  | km/h | Latitude given by GNSS |
-| Longitude | 32    | 32  | 0.000001 | 0      | -180 | 180 | m    | Longitude given by GNSS |
+| Latitude  | 0     | 32  | 0.000001 | 0      | -90  | 90  | ° | Latitude given by GNSS |
+| Longitude | 32    | 32  | 0.000001 | 0      | -180 | 180 | °    | Longitude given by GNSS |
 
 _Notice: both the encoded signals are signed!_
 
