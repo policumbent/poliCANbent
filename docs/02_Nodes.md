@@ -12,11 +12,27 @@
 
 The gearbox has two types of messages:
 
+- [``RefusoData``](#refusodata)
 - [``GbError``](#gberror)
 - [``GbData``](#gbdata)
 
 We divide them due to ID priority, giving ``GbError`` higher priority since the
-gearbox is the most critical ECU of our bikes. 
+gearbox is the most critical ECU of our bikes. ``RefusoData`` has the highest
+priority since it has to be used by the gearbox to compute the real time
+position.
+
+#### RefusoData
+
+- ``RefusoData`` encodes the voltage got by the potentiometer mounted on the
+feedback board, representing the position of the gearbox cassette.
+- ID: ``0x24``
+- DLC: ``2``
+
+It encodes the following signals:
+
+| Name       | Start | Len | Factor | Offset | Min | Max | Unit | Comment |
+|------------|:-----:|:---:|:------:|:------:|:---:|:---:|:----:|---------|
+| Position   | 0     | 16  | 0.01   | 0      | 0   | 10  | V    | Voltage representing position |
 
 #### GbError
 

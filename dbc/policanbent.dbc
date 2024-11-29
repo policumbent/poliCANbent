@@ -79,6 +79,9 @@ BO_ 1122 whereamiRawData: 4 Vector__XXX
 BO_ 1128 whereamiPosUncert: 2 Vector__XXX
  SG_ PosUncertainty : 0|16@1+ (0.01,0) [0|100] "m" Vector__XXX
 
+BO_ 36 RefusoData: 2 Vector__XXX
+ SG_ Position : 0|16@1+ (0.01,0) [0|10] "V" Vector__XXX
+
 
 
 CM_ SG_ 640 Bat0UnderVolt "DumBMS LiPo undervoltage detected";
@@ -92,3 +95,4 @@ CM_ SG_ 672 Bat1UnderVolt "3S slot 1 undervoltage detected ";
 CM_ SG_ 672 Bat2UnderVolt "3S slot 2 undervoltage detected";
 CM_ SG_ 672 Bat3UnderVolt "3S slot 3 undervoltage detected";
 CM_ SG_ 672 Bat4UnderVolt "3S slot 4 undervoltage detected";
+

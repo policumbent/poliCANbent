@@ -30,12 +30,12 @@
 - ``0001``: Gearbox
     - ``00001``: Greta (Cerberus gearbox receiver)
     - ``00010``: gearbox
-- ``0010``: Raspberry Pi/Bob data sending
+    - ``00100``: refuso (gearbox feedback board)
+- ``0010``: Raspberry Pi (Bob/FFS) data sending
     - ``00001``: SRM power
     - ``00010``: SRM pedals' RPM
     - ``00011``: hall sensor speed
     - ``00100``: hall sensor displacement
-    <!-- - ``00110``: accelerometer -->
     - ``00110``: heart-rate
 - ``0011``: whereami (GNSS)
     - ``00000``: parallel speed /distance
@@ -52,6 +52,8 @@
     - ``01000``: GPS altitude -->
 
 ### Current IDs
+
+- ``RefusoData``: Refuso's potentiometer data, id: ``0x24``
 
 - ``GretaError``: Greta receiver error (Cerberus), id: ``0x221``
 
