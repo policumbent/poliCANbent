@@ -31,3 +31,11 @@ The ``libs`` subfolder contains the ``.h`` and ``.c`` files exported by
 In order to use these libraries, you have to copy them in the project that needs
 them. In doing so, you can access the generated functions just importing the
 ``.h`` file in your source code and compiling it with the ``.c`` of the library.
+
+## Plotting logs
+
+For plotting some of the signals in a CAN log, it is possible to use the
+following command:
+```bash
+cat <path-to-log> | python -m cantools plot ./dbc/policanbent.dbc -- --ylabel '<Label 1>' '<MsgName1.SignalName1>' - <...> - --ylabel '<Label N>' '<MsgNameN.SignalNameN>'
+```
