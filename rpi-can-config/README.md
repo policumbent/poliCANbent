@@ -51,12 +51,15 @@ Copy the file ```can.conf``` in ```/etc/modules-load.d/```
 
 ### Enable CAN interface
 
-Append the following lines in ```/etc/network/interfaces```
+Append the following lines in ```/etc/systemd/network/80-can.network```
 
-```
-auto can0
-iface can0 can static
-	bitrate 500000
+```bash
+[Match]
+Name=can0
+
+[CAN]
+BitRate=500K
+RestartSec=100ms
 ```
 
 ## Testing
