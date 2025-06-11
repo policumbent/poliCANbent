@@ -68,7 +68,7 @@ Raspberry side, if it doesn't, check the [troubleshooting section](#troubleshoot
 ### Testing the Raspberry Pi alone
 
 _Note: this will test only the Raspberry-MCP2515 connection, without considering
-the TJA1050 and, therefore, the CAN Bus itself._
+the transceiver and, therefore, the CAN Bus itself._
 
 You will need two tty sessions, it is possible connecting your PC to the
 Raspberry both with [UART](https://github.com/policumbent/coltellino-svizzero/blob/main/debug-tools/raspberry_pi.md#uart)
@@ -149,9 +149,9 @@ In the following example, ``error -110`` means a timeout error.
 
 In some cases, it can show the ``successfully initialized`` message, followed by
 an error. Usually, by empirical experience, it happens when the connection
-between the MCP2515 and the TJA1050 is not working, so in that case you should
+between the MCP2515 and the transceiver is not working, so in that case you should
 check the physical connection between the two integrated circuits or the
-powering of the TJA1050.
+powering of the transceiver.
 
 _Note: if you modify something, you should reboot the system in order to restart
 SPI and see the results of your changes._ To avoid that, you can "restart" the

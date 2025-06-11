@@ -10,4 +10,7 @@ cat ./config/config.txt | sudo tee -a /boot/firmware/config.txt
 sudo cp ./config/can.conf /etc/modules-load.d/
 
 # setting up CAN interface
-cat ./config/interfaces | sudo tee -a /etc/network/interfaces
+sudo systemctl start systemd-networkd
+sudo systemctl enable systemd-networkd
+
+cat ./config/interfaces | sudo tee -a /etc/systemd/network/80-can.network
