@@ -13,4 +13,4 @@ sudo cp ./config/can.conf /etc/modules-load.d/
 sudo systemctl start systemd-networkd
 sudo systemctl enable systemd-networkd
 
-cat ./config/80-can.config | sudo tee -a /etc/systemd/network/80-can.network
+cat ./config/80-can.network | sudo tee -a /etc/systemd/network/80-can.network
