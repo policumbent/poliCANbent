@@ -150,7 +150,7 @@ It encodes the following signals:
 
 | Name       | Start | Len | Factor | Offset | Min | Max | Unit | Comment |
 |------------|:-----:|:---:|:------:|:------:|:---:|:---:|:----:|---------|
-| HsDistance | 16    | 16  | 1      | 0      | 0   | 9000| m    | Distance computed by Hall Sensor |
+| HsDistance | 0     | 16  | 1      | 0      | 0   | 9000| m    | Distance computed by Hall Sensor |
 
 #### BobHR
 
