@@ -91,7 +91,9 @@ It encodes the following signals:
 | TelekBattery | 0     | 7   | 1      | 0      | 0   | 100 | %    | Battery percentage of Telekhambion |
 | RxShifting   | 8     | 2   | 1      | 0      | 0   | 3   | -    | Shifting information received from Telekhambion |
 
-
+``RxShifting`` encoding:
+- bit in position 0 encodes active downshift command when high
+- bit in position 1 encodes active upshift command when high
 
 ### Raspberry Pi
 
