@@ -126,7 +126,7 @@ It encodes the following signals:
 
 | Name       | Start | Len | Factor | Offset | Min | Max | Unit | Comment |
 |------------|:-----:|:---:|:------:|:------:|:---:|:---:|:----:|---------|
-| SrmCadence | 16    | 16  | 0.1    | 0      | 0   | 1000| rpm  | Cadence read by SRM Power Meter |
+| SrmCadence | 0     | 16  | 0.1    | 0      | 0   | 1000| rpm  | Cadence read by SRM Power Meter |
 
 #### BobHsSpeed
 
