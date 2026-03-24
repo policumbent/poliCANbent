@@ -41,6 +41,7 @@
     - ``00000``: parallel speed /distance
     - ``00010``: raw speed / distance
     - ``00100``: coordinates
+    - ``00110``: altitude
     - ``01000``: position uncertainty
 - ``0100``: DumBMS-1
 - ``0101``: DumBMS-2 (if needed)
@@ -82,6 +83,8 @@
 - ``whereamiRawData``: whereami raw speed and distance: id: ``0x462``
 
 - ``whereamiCoords``: whereami GNSS coordinates, id: ``0x464``
+
+- ``whereamiAltitude``: whereami GNSS altitude, id: ``0x466``
 
 - ``whereamiPosUncert``: whereami GNSS position uncertainty, id: ``0x468``
 

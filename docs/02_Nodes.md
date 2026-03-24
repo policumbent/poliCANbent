@@ -206,10 +206,11 @@ It encodes the following signal
 
 ### whereami
 
-whereami has two types of messages:
+whereami has five types of messages:
 - [``whereamiData``](#whereamidata)
 - [``whereamiRawData``](#whereamirawdata)
 - [``whereamiCoords``](#whereamicoords)
+- [``whereamiAltitude``](#whereamialtitude)
 - [``whereamiPosUncert``](#whereamiposuncert)
 
 #### whereamiData
@@ -253,6 +254,19 @@ It encodes the following signals:
 | Longitude | 32    | 32  | 0.000001 | 0      | -180 | 180 | m    | Longitude given by GNSS |
 
 _Notice: both the encoded signals are signed!_
+
+#### whereamiAltitude
+
+
+- ``whereamiAltitude`` encodes the altitude given by the GNSS system
+- ID: ``0x466``
+- DLC: ``2``
+
+It encodes the following signal:
+
+| Name      | Start | Len | Factor   | Offset | Min  | Max | Unit | Comment |
+|-----------|:-----:|:---:|:--------:|:------:|:----:|:---:|:----:|---------|
+| Altitude  | 0     | 16  | 0.1      | 0      | 0    | 6553| m    | Altitude given by GNSS |
 
 #### whereamiPosUncert
 
