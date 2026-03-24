@@ -40,7 +40,7 @@
 - ``0011``: whereami (GNSS)
     - ``00000``: parallel speed /distance
     - ``00010``: raw speed / distance
-    - ``00100``: coordinates / altitude
+    - ``00100``: coordinates
     - ``01000``: position uncertainty
 - ``0100``: DumBMS-1
 - ``0101``: DumBMS-2 (if needed)
