@@ -37,9 +37,10 @@ BO_ 1120 whereamiData: 4 Vector__XXX
  SG_ Speed : 0|16@1+ (0.01,0) [0|200] "km/h" Vector__XXX
  SG_ Distance : 16|16@1+ (1,0) [0|20000] "m" Vector__XXX
 
-BO_ 1124 whereamiCoords: 8 Vector__XXX
+BO_ 1124 whereamiCoords: 10 Vector__XXX
  SG_ Latitude : 0|32@1- (0.000001,0) [-90|90] "°" Vector__XXX
  SG_ Longitude : 32|32@1- (0.000001,0) [-180|180] "°" Vector__XXX
+ SG_ Altitude : 64|16@1+ (0.1,0) [0|6553] "m" Vector__XXX
 
 
 

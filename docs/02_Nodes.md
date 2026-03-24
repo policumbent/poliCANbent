@@ -251,6 +251,7 @@ It encodes the following signals:
 |-----------|:-----:|:---:|:--------:|:------:|:----:|:---:|:----:|---------|
 | Latitude  | 0     | 32  | 0.000001 | 0      | -90  | 90  | km/h | Latitude given by GNSS |
 | Longitude | 32    | 32  | 0.000001 | 0      | -180 | 180 | m    | Longitude given by GNSS |
+| Altitude  | 64    | 16  | 0.1      | 0      | 0 | 6553 | m    | Altitude computed from GNSS data |
 
 _Notice: both the encoded signals are signed!_
 
