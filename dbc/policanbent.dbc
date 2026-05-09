@@ -41,8 +41,8 @@ BO_ 1124 whereamiCoords: 8 Vector__XXX
  SG_ Latitude : 0|32@1- (0.000001,0) [-90|90] "°" Vector__XXX
  SG_ Longitude : 32|32@1- (0.000001,0) [-180|180] "°" Vector__XXX
 
-
-
+BO_ 1126 whereamiAltitude: 2 Vector__XXX
+ SG_ Altitude : 0|16@1+ (0.1,0) [0|6553] "m" Vector__XXX
 
 BO_ 640 Dumbms1Error: 1 Vector__XXX
  SG_ Bat0UnderVolt : 0|1@1+ (1,0) [0|1] "" Vector__XXX
@@ -84,6 +84,7 @@ BO_ 36 RefusoData: 2 Vector__XXX
 
 
 
+
 CM_ SG_ 640 Bat0UnderVolt "DumBMS LiPo undervoltage detected";
 CM_ SG_ 640 Bat1UnderVolt "3S slot 1 undervoltage detected ";
 CM_ SG_ 640 Bat2UnderVolt "3S slot 2 undervoltage detected";
@@ -95,4 +96,5 @@ CM_ SG_ 672 Bat1UnderVolt "3S slot 1 undervoltage detected ";
 CM_ SG_ 672 Bat2UnderVolt "3S slot 2 undervoltage detected";
 CM_ SG_ 672 Bat3UnderVolt "3S slot 3 undervoltage detected";
 CM_ SG_ 672 Bat4UnderVolt "3S slot 4 undervoltage detected";
+
 
