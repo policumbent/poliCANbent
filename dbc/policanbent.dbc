@@ -82,6 +82,16 @@ BO_ 1128 whereamiPosUncert: 2 Vector__XXX
 BO_ 36 RefusoData: 2 Vector__XXX
  SG_ Position : 0|16@1+ (0.01,0) [0|10] "V" Vector__XXX
 
+BO_ 1286 IMUDataAcc: 6 Vector__XXX
+ SG_ AccX : 0|16@1- (0.000061,0) [-1.998|1.998] "g" Vector__XXX
+ SG_ AccY : 16|16@1- (0.000061,0) [-1.998|1.998] "g" Vector__XXX
+ SG_ AccZ : 32|16@1- (0.000061,0) [-1.998|1.998] "g" Vector__XXX
+
+BO_ 1408 IMUDataGiro: 6 Vector__XXX
+ SG_ GiroX : 0|16@1- (0.00875,0) [-250|250] "dps" Vector__XXX
+ SG_ GiroY : 16|16@1- (0.00875,0) [-250|250] "dps" Vector__XXX
+ SG_ GiroZ : 32|16@1- (0.00875,0) [-250|250] "dps" Vector__XXX
+
 
 
 
@@ -96,5 +106,6 @@ CM_ SG_ 672 Bat1UnderVolt "3S slot 1 undervoltage detected ";
 CM_ SG_ 672 Bat2UnderVolt "3S slot 2 undervoltage detected";
 CM_ SG_ 672 Bat3UnderVolt "3S slot 3 undervoltage detected";
 CM_ SG_ 672 Bat4UnderVolt "3S slot 4 undervoltage detected";
+
 
 
